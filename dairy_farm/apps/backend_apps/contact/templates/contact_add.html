@@ -1,0 +1,87 @@
+{% block content %}
+<!-- ======== START OF HEADER SECTION ========= -->
+{% include "front_includes/front_header.html" %}
+<!-- ======== END OF HEADER SECTION =========== -->
+
+{% load static %}
+
+    <div class="body1">
+        <div class="main">
+        <!-- ======== START OF HEADER SECTION ========= -->
+        {% include "front_includes/front_menubar.html" %}
+        <!-- ======== END OF HEADER SECTION =========== -->
+        </div>
+    </div>
+
+    <div class="body2">
+        <div class="main">
+            <article id="content2">
+                <div class="wrapper">
+                    <div class="col1">
+                        <h2>Our Contacts</h2>
+
+                        <ul class="address">
+                            <li>Ponditpara, Mymensingh</li>
+                            <li><pre>Freephone: +8801712345678</pre></li>
+                            <li><pre>Telephone: +8801612345678</pre></li>
+                            <li><pre>E-mail: <a href="#">{{ menuData.email }}</a></pre></li>
+                        </ul>
+
+                        <p>Contact us for order.</p>
+                    </div>
+
+                    <div class="cols pad_left1">
+                        <section class="col3 pad_left2">
+                            <h3>Contact Us</h3>
+
+                            <form id="ContactForm" action="" method="POST">
+                                {% csrf_token %}
+                                <div>
+                                    <div class="wrapper"> <span>Your Name:</span>
+                                        <div class="bg">
+                                            <input name="name" type="text" class="input">
+                                        </div>
+                                    </div>
+
+                                    <div class="wrapper"> <span>Your Contact:</span>
+                                        <div class="bg">
+                                            <input name="contact" type="text" class="input">
+                                        </div>
+                                    </div>
+
+                                    <div class="wrapper"> <span>Your E-mail:</span>
+                                        <div class="bg">
+                                            <input name="email" type="email" class="input">
+                                        </div>
+                                    </div>
+
+                                    <div class="wrapper"> <span>Subject:</span>
+                                        <div class="bg">
+                                            <input name="subject" type="text" class="input">
+                                        </div>
+                                    </div>
+
+                                    <div class="textarea_box"> <span>Message:</span>
+                                        <div class="bg2">
+                                            <textarea name="description" cols="1" rows="1"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <input type="submit" name="contact_add" value="Submit" class="">
+                                </div>
+                            </form>
+                        </section>
+                    </div>
+                </div>
+            </article><br>
+        </div>
+    </div>
+
+    <section id="googleMap">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3646.283695262137!2d90.37794331498515!3d23.95040628449119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c4ac7e91b29f%3A0xe707d27208e45689!2sNational%20University%2C%20Bangladesh!5e0!3m2!1sen!2sbd!4v1580569503328!5m2!1sen!2sbd" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+    </section>
+
+<!-- ===== START OF FOOTER SECTION ======== -->
+{% include "front_includes/front_footer.html" %}
+<!-- ===== END OF FOOTER SECTION ========== -->
+{% endblock content %}

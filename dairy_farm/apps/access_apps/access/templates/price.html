@@ -1,0 +1,50 @@
+{% block content %}
+<!-- ======== START OF HEADER SECTION ========= -->
+{% include "front_includes/front_header.html" %}
+<!-- ======== END OF HEADER SECTION =========== -->
+
+{% load static %}
+
+    <div class="body1">
+        <div class="main">
+        <!-- ======== START OF HEADER SECTION ========= -->
+        {% include "front_includes/front_menubar.html" %}
+        <!-- ======== END OF HEADER SECTION =========== -->
+        </div>
+    </div>
+
+    <div class="body2">
+        <div class="main">
+            <article id="content2">
+                <h2 style="text-align: center;">Pricing Information</h2><br><br>
+
+                <div class="wrapper">
+                    {% for p in productData %}
+                    <div class="pad_left1" style="width: 28%; float: left;">
+                        <div class="wrapper">
+                            <figure class="left marg_right1">
+                                <img style="width: 100px; height: 100px; padding: 5px; background-color: #fff; border-radius: 5px;" 
+                                src="{{ MEDIA_URL }}product/{{ p.image }}" alt=""><br><br>
+                            </figure>
+
+                            <p> <span class="font1 color2">{{ p.name | title }}</span><br>
+                            {{ p.category_id.name | title }}</p>
+                        </div>
+
+                        <ul class="price">
+                            <li><span>{{ p.regular_price }} TK</span><a href="#">Regular Price :</a></li>
+                            <li><span>{{ p.current_price }} TK</span><a href="#">Current Price :</a></li>
+                            <li><span>{{ p.delivery_charge }} TK</span><a href="#">Delivery Charge :</a></li>
+                            <li><span>{{ p.other_charge }} TK</span><a href="#">Other Charge :</a></li>
+                        </ul><br><br><br>
+                    </div>
+                    {% endfor %}
+                </div>
+            </article>
+        </div>
+    </div>
+
+<!-- ===== START OF FOOTER SECTION ======== -->
+{% include "front_includes/front_footer.html" %}
+<!-- ===== END OF FOOTER SECTION ========== -->
+{% endblock content %}

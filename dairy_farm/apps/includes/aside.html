@@ -1,0 +1,132 @@
+{% load static %}
+<div class="left-sidebar-pro">
+    <nav id="sidebar" class="">
+
+    	<div class="nalika-profile">
+    		<div class="profile-dtl">
+    			<a href="#"><img src="{{ MEDIA_URL }}profile_img/{{ menuData.profile_picture }}" alt="" /></a>
+    			<h2><span class="min-dtn">{{ menuData.name | title }}</span></h2>
+    		</div>
+    		<div class="profile-social-dtl">
+    			<ul class="dtl-social">
+    				<li><a href="#"><i class="icon nalika-facebook"></i></a></li>
+    				<li><a href="#"><i class="icon nalika-twitter"></i></a></li>
+    				<li><a href="#"><i class="icon nalika-linkedin"></i></a></li>
+    			</ul>
+    		</div>
+    	</div>
+
+        <div class="left-custom-menu-adp-wrap">
+            <nav class="sidebar-nav left-sidebar-menu-pro">
+                <ul class="metismenu" id="menu1">
+                    <li>
+                        <a href="{% url 'home' %}" class="btn btn-primary">
+                            Dashboard
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="has-arrow">
+                            <i class="icon nalika-home icon-wrap"></i>
+                            <span class="mini-click-non">Category</span>
+                        </a>
+
+                        <ul class="submenu-angle" aria-expanded="true">
+                            <li><a title="Product Edit" href="{% url 'add_category' %}"><span class="mini-sub-pro">Add Category</span></a></li>
+                            <li><a title="Product List" href="{% url 'all_category' %}"><span class="mini-sub-pro">Category List</span></a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="has-arrow">
+                            <i class="icon nalika-home icon-wrap"></i>
+                            <span class="mini-click-non">Company</span>
+                        </a>
+
+                        <ul class="submenu-angle" aria-expanded="true">
+                            <li><a title="Product Edit" href="{% url 'add_company' %}"><span class="mini-sub-pro">Add Company</span></a></li>
+                            <li><a title="Product List" href="{% url 'all_company' %}"><span class="mini-sub-pro">Company List</span></a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="has-arrow">
+    						<i class="icon nalika-home icon-wrap"></i>
+    						<span class="mini-click-non">Product</span>
+    					</a>
+
+                        <ul class="submenu-angle" aria-expanded="true">
+                            <li><a title="Product Edit" href="{% url 'add_product' %}"><span class="mini-sub-pro">Add Product</span></a></li>
+                            <li><a title="Product List" href="{% url 'all_product' %}"><span class="mini-sub-pro">Product List</span></a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="has-arrow">
+                            <i class="icon nalika-home icon-wrap"></i>
+                            <span class="mini-click-non">Order</span>
+                        </a>
+
+                        <ul class="submenu-angle" aria-expanded="true">
+                            <li><a title="Product Edit" href="{% url 'add_order' %}"><span class="mini-sub-pro">Add Order</span></a></li>
+                            <li><a title="Product List" href="{% url 'all_order' %}"><span class="mini-sub-pro">Order List</span></a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="has-arrow">
+                            <i class="icon nalika-home icon-wrap"></i>
+                            <span class="mini-click-non">Income</span>
+                        </a>
+
+                        <ul class="submenu-angle" aria-expanded="true">
+                            <li><a title="Product Edit" href="{% url 'add_income' %}"><span class="mini-sub-pro">Add Income</span></a></li>
+                            <li><a title="Product List" href="{% url 'all_income' %}"><span class="mini-sub-pro">Income List</span></a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="has-arrow">
+                            <i class="icon nalika-home icon-wrap"></i>
+                            <span class="mini-click-non">Cost</span>
+                        </a>
+
+                        <ul class="submenu-angle" aria-expanded="true">
+                            <li><a title="Product Edit" href="{% url 'add_cost' %}"><span class="mini-sub-pro">Add Cost</span></a></li>
+                            <li><a title="Product List" href="{% url 'all_cost' %}"><span class="mini-sub-pro">Cost List</span></a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="has-arrow">
+                            <i class="icon nalika-home icon-wrap"></i>
+                            <span class="mini-click-non">Report</span>
+                        </a>
+
+                        <ul class="submenu-angle" aria-expanded="true">
+                            <li><a title="Product List" href="{% url 'transaction_report' %}"><span class="mini-sub-pro">Transaction Report</span></a></li>
+                            <li><a title="Product List" href="{% url 'revenue_report' %}"><span class="mini-sub-pro">Revenue Report</span></a></li>
+                            <li><a title="Product List" href="{% url 'customer_report' %}"><span class="mini-sub-pro">Customer Report</span></a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="" href="{% url 'all_feedback' %}">
+                            <i class="icon nalika-home icon-wrap"></i>
+                            <span class="mini-click-non">Feedbacks</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="" href="{% url 'all_contact' %}">
+                            <i class="icon nalika-home icon-wrap"></i>
+                            <span class="mini-click-non">Contacts</span>
+                        </a>
+                    </li>
+                    <h1>&nbsp;</h1>
+                    <h1>&nbsp;</h1>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+</div>

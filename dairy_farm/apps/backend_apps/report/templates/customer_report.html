@@ -1,0 +1,63 @@
+<!-- ======== START OF HEADER SECTION ========= -->
+{% include "includes/header.html" %}
+<!-- ======== END OF HEADER SECTION =========== -->
+{% load static %}
+{% block content %}
+
+    <!-- ======== START OF HEADER SECTION ========= -->
+    {% include "includes/aside.html" %}
+    <!-- ======== END OF HEADER SECTION =========== -->
+
+    <div class="all-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="logo-pro">
+                        <h1>&nbsp;</h1>
+                        <h1>&nbsp;</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-advance-area">
+            <!-- ======== START OF HEADER SECTION ========= -->
+            {% include "includes/menubar.html" %}
+            <!-- ======== END OF HEADER SECTION =========== -->
+        </div>
+
+        <div class="product-status mg-b-30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="product-status-wrap">
+                            <h4>Customer Report</h4>
+                            <table>
+                                <tr>
+                                    <th>Customer Name</th>
+                                    <th>Customer Contact</th>
+                                    <th>Customer Address</th>
+                                    <th>Customer Rating</th>
+                                </tr>
+
+                                {% for o in orderData %}
+                                <tr>
+                                    <td>{{ o.customer_name }}</td>
+                                    <td>{{ o.customer_contact }}</td>
+                                    <td>{{ o.customer_address }}</td>
+                                    <td>{{ o.customer_rating }} Star(s)</td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- ===== START OF FOOTER SECTION ======== -->
+{% include "includes/footer.html" %}
+<!-- ===== END OF FOOTER SECTION ========== -->

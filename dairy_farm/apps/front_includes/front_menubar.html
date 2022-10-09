@@ -1,0 +1,21 @@
+{% load static %}
+
+<header style="max-height: 140px;">
+    <div class="wrapper">
+        <h1>
+            <a href="{% url 'web_home' %}" style="display: inline-block; padding-top: 30px;">
+            <span style="color: #589F09; font-size: 50px; font-weight: bold;"
+            >dairy<b style="color: #04530A !important;">Farm</b></span></a>
+        </h1>
+        
+        <nav>
+            <ul id="menu">
+                <li {% if active == 'home' %} class="active" {% endif %}><a href="{% url 'web_home' %}">Home</a></li>
+                <li {% if active == 'product' %} class="active" {% endif %}><a href="{% url 'web_product' %}">Products</a></li>
+                <li {% if active == 'price' %} class="active" {% endif %}><a href="{% url 'web_price' %}">Pricing</a></li>
+                <li {% if active == 'feedback' %} class="active" {% endif %}><a href="{% url 'add_feedback' %}">Feedback</a></li>
+                <li {% if active == 'contact' %} class="active" {% endif %}><a href="{% url 'add_contact' %}">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>

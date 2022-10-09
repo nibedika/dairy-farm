@@ -1,0 +1,141 @@
+<!-- ======== START OF HEADER SECTION ========= -->
+{% include "includes/header.html" %}
+<!-- ======== END OF HEADER SECTION =========== -->
+{% load static %}
+{% block content %}
+
+    <!-- ======== START OF HEADER SECTION ========= -->
+    {% include "includes/aside.html" %}
+    <!-- ======== END OF HEADER SECTION =========== -->
+
+    <div class="all-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="logo-pro">
+                        <h1>&nbsp;</h1>
+                        <h1>&nbsp;</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-advance-area">
+
+            <!-- ======== START OF HEADER SECTION ========= -->
+            {% include "includes/menubar.html" %}
+            <!-- ======== END OF HEADER SECTION =========== -->
+
+            <div class="single-product-tab-area mg-t-0 mg-b-30">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+    						<div class="single-product-pr">
+    							<div class="row">
+    								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="min-height: 100vh !important; padding-left: 50px;">
+    									<div class="single-product-details res-pro-tb">
+    										<h1>&nbsp;</h1>
+                                            <h1>Order Info <span onclick="print()" style="float: right;"><i class='fa fa-print'></i> Print</span></h1><hr>
+
+                                            <div class="single-pro-cn">
+                                                <h3>Invoice No. : {{ orderData.order_id }}</h3>
+                                                <h3>Customer Name : {{ orderData.customer_name }}</h3>
+                                                <h3>Customer Contact : {{ orderData.customer_contact }}</h3>
+                                                <h3>Customer Address : {{ orderData.customer_address }}</h3>
+                                            </div>
+
+                                            <table class="table table-bordered text-center" style="background-color: #ccc;">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center">Backend</th>
+                                                        <th class="text-center">Project</th>
+                                                        <th class="text-center">Category</th>
+                                                        <th class="text-center">Company</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    {% for p in productData %}
+                                                    {% with allProduct=orderData.product_id.all %}
+                                                    {% if p in allProduct %}
+                                                    <tr>
+                                                        <td>
+                                                            <img style="width: 35px;" alt="img" src="{{ MEDIA_URL }}product/{{ p.image }}">
+                                                        </td>
+
+                                                        <td>
+                                                            {{ p.name }}
+                                                        </td>
+
+                                                        <td>
+                                                            {{ p.category_id.name }}
+                                                        </td>
+
+                                                        <td>
+                                                            {{ p.company_id.name }}
+                                                        </td>
+                                                    </tr>
+                                                    {% endif %}
+                                                    {% endwith %}
+                                                    {% endfor %}
+                                                    
+                                                    <tr>
+                                                        <td colspan="3" class="text-right">Bill : </td>
+                                                        <td colspan="2">
+                                                            {{ orderData.bill }} TK
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td colspan="3" class="text-right">Commission : </td>
+                                                        <td colspan="2">
+                                                            {{ orderData.commission }} TK
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td colspan="3" class="text-right">Remission : </td>
+                                                        <td colspan="2">
+                                                            {{ orderData.remission }} TK
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td colspan="3" class="text-right">Customer Feedback : </td>
+                                                        <td colspan="2">
+                                                            {{ orderData.customer_feedback }}
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td colspan="3" class="text-right">Customer Rating : </td>
+                                                        <td colspan="2">
+                                                            {{ orderData.customer_rating }}
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td colspan="3" class="text-right">Order Status : </td>
+                                                        <td colspan="2">
+                                                            {{ orderData.status | title }}
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+    									</div>
+    								</div>
+    							</div>
+    						</div>
+    					</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Single pro tab End-->
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- ===== START OF FOOTER SECTION ======== -->
+{% include "includes/footer.html" %}
+<!-- ===== END OF FOOTER SECTION ========== -->

@@ -1,0 +1,93 @@
+{% block content %}
+<!-- ======== START OF HEADER SECTION ========= -->
+{% include "front_includes/front_header.html" %}
+<!-- ======== END OF HEADER SECTION =========== -->
+
+{% load static %}
+
+    <div class="body1">
+        <div class="main">
+        <!-- ======== START OF HEADER SECTION ========= -->
+        {% include "front_includes/front_menubar.html" %}
+        <!-- ======== END OF HEADER SECTION =========== -->
+        </div>
+    </div>
+
+    <div class="body2">
+        <div class="main">
+            <article id="content2">
+                <div class="wrapper">
+                    <div class="col1">
+                        <h2>You can post also</h2>
+
+                        <ul class="address">
+                            <li>Ponditpara, Mymensingh</li>
+                            <li><pre>Freephone: +8801712345678</pre></li>
+                            <li><pre>Telephone: +8801612345678</pre></li>
+                            <li><pre>E-mail: <a href="#">{{ menuData.email }}</a></pre></li>
+                        </ul>
+
+                        <p>Give your valuable Feedback.</p>
+                    </div>
+
+                    <div class="cols pad_left1">
+                        <section class="col3 pad_left2">
+                            <h3>Give Feedback </h3>
+
+                            <form id="ContactForm" action="" method="POST">
+                                {% csrf_token %}
+                                <div>
+                                    <div class="wrapper"> <span>Your Name : </span>
+                                        <div class="bg">
+                                            <input name="name" type="text" class="input" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="wrapper"> <span>Your Contact : </span>
+                                        <div class="bg">
+                                            <input name="contact" type="text" class="input" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="wrapper"> <span>Your E-mail : </span>
+                                        <div class="bg">
+                                            <input name="email" type="email" class="input" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="wrapper"> <span>Product : </span>
+                                        <div class="bg" style="width: 317px;">
+                                            <select name="product" class="input" required>
+                                                {% for p in productData %}
+                                                    <option value="{{ p.id }}">{{ p.name }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="textarea_box"> <span>Description : </span>
+                                        <div class="bg2">
+                                            <textarea name="description" cols="1" rows="1" required></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="wrapper"> <span>Rating : </span>
+                                        <div class="bg">
+                                            <input name="rating" type="number" class="input" min="1" max="5" value="5" required>
+                                        </div>
+                                    </div>
+
+                                    <input type="submit" name="feedback_add" value="Submit" class="">
+                                </div>
+                            </form>
+                        </section>
+                    </div>
+                </div>
+            </article><br>
+        </div>
+    </div>
+
+<!-- ===== START OF FOOTER SECTION ======== -->
+{% include "front_includes/front_footer.html" %}
+<!-- ===== END OF FOOTER SECTION ========== -->
+{% endblock content %}

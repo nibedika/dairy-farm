@@ -1,0 +1,46 @@
+{% block content %}
+<!-- ======== START OF HEADER SECTION ========= -->
+{% include "front_includes/front_header.html" %}
+<!-- ======== END OF HEADER SECTION =========== -->
+
+{% load static %}
+
+    <div class="body1">
+        <div class="main">
+        <!-- ======== START OF HEADER SECTION ========= -->
+        {% include "front_includes/front_menubar.html" %}
+        <!-- ======== END OF HEADER SECTION =========== -->
+        </div>
+    </div>
+
+    <div class="body2">
+        <div class="main">
+            <article id="content2">
+                <h2 style="text-align: center;">Our Featured Products</h2>
+
+                <div class="wrapper">
+                    {% for p in productData %}
+                    <div class="cols pad_left1 pad_right1 pad_bot2">
+                        <figure class="pad_bot2 pad_top1">
+                            <img src="{{ MEDIA_URL }}product/{{ p.image }}" 
+                            style="width: 225px; height: 225px; padding: 10px; background-color: #fff; border-radius: 5px;" 
+                            alt="">
+                        </figure>
+
+                        <p class="pad_bot2"> <span class="font1 color2">{{ p.name | title }}</span><br>
+                            <em>{{ p.category_id.name | title }}</em><br>
+                            <em>{{ p.company_id.name | title }}</em><br>
+                            <em>Price : <del>{{ p.regular_price }} </del>&nbsp; {{ p.current_price }} TK</em><br>
+                            <em>Delivery Charge : {{ p.delivery_charge }} TK</em><br>
+                        </p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </article>
+        </div>
+    </div>
+
+<!-- ===== START OF FOOTER SECTION ======== -->
+{% include "front_includes/front_footer.html" %}
+<!-- ===== END OF FOOTER SECTION ========== -->
+{% endblock content %}

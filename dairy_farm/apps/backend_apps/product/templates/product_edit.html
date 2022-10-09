@@ -1,0 +1,140 @@
+<!-- ======== START OF HEADER SECTION ========= -->
+{% include "includes/header.html" %}
+<!-- ======== END OF HEADER SECTION =========== -->
+{% load static %}
+{% block content %}
+
+    <!-- ======== START OF HEADER SECTION ========= -->
+    {% include "includes/aside.html" %}
+    <!-- ======== END OF HEADER SECTION =========== -->
+
+    <div class="all-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="logo-pro">
+                        <h1>&nbsp;</h1>
+                        <h1>&nbsp;</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-advance-area">
+
+            <!-- ======== START OF HEADER SECTION ========= -->
+            {% include "includes/menubar.html" %}
+            <!-- ======== END OF HEADER SECTION =========== -->
+
+
+            <!-- Single pro tab start-->
+            <div class="single-product-tab-area mg-b-30">
+                <!-- Single pro tab review Start-->
+                <div class="single-pro-review-area">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="review-tab-pro-inner">
+                                    <ul id="myTab3" class="tab-review-design">
+                                        <li class="active"><a href="#description"><i class="icon nalika-edit" aria-hidden="true"></i> Edit Product </a></li>
+                                    </ul>
+
+                                    <form id="" method="POST" action="" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div id="myTabContent" class="tab-content custom-product-edit">
+                                            <div class="product-tab-list tab-pane fade active in" id="description">
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="review-content-section">
+                                                            <div class="input-group mg-b-pro-edt">
+                                                                <span class="input-group-addon">
+                                                                    <select name="category_id" class="form-control" required>
+                                                                        <option value="" selected disabled>Select Category</option>
+                                                                        {% for i in categoryData %}
+                                                                            <option {% if i.category_id == productData.category_id.category_id %} selected {% endif %} value="{{ i.category_id }}">{{ i.name }}</option>
+                                                                        {% endfor %}
+                                                                    </select>
+                                                                </span>
+                                                            </div>
+
+                                                            <div class="input-group mg-b-pro-edt">
+                                                                <span class="input-group-addon"><i class="icon nalika-user" aria-hidden="true"></i></span>
+                                                                <input type="text" name="name" value="{{ productData.name }}" class="form-control" placeholder="Name">
+                                                            </div>
+
+                                                            <div class="input-group mg-b-pro-edt">
+                                                                <span class="input-group-addon">BDT</span>
+                                                                <input type="text" name="regular_price" value="{{ productData.regular_price }}" class="form-control" placeholder="Regular Price">
+                                                            </div>
+
+                                                            <div class="input-group mg-b-pro-edt">
+                                                                <span class="input-group-addon">BDT</span>
+                                                                <input type="text" name="delivery_charge" value="{{ productData.delivery_charge }}" class="form-control" placeholder="Delivery Charge">
+                                                            </div>
+
+                                                            <div class="input-group mg-b-pro-edt">
+                                                                <span class="input-group-addon"></span>
+                                                                <select name="status" class="form-control pro-edt-select form-control-primary">
+                                                                    <option value="" disabled>Status</option>
+                                                                    <option {% if productData.status == 'active' %} selected {% endif %} value="active">Active</option>
+                                                                    <option {% if productData.status == 'inactive' %} selected {% endif %} value="inactiva">Inactiva</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="review-content-section">
+                                                            <div class="input-group mg-b-pro-edt">
+                                                                <span class="input-group-addon">
+                                                                    <select name="company_id" class="form-control" required>
+                                                                        <option value="" selected disabled>Select Company</option>
+                                                                        {% for i in companyData %}
+                                                                            <option {% if i.company_id == productData.company_id.company_id %} selected {% endif %} value="{{ i.company_id }}">{{ i.name }}</option>
+                                                                        {% endfor %}
+                                                                    </select>
+                                                                </span>
+                                                            </div>
+
+                                                            <div class="input-group mg-b-pro-edt">
+                                                                <span class="input-group-addon"><i class="icon nalika-user" aria-hidden="true"></i></span>
+                                                                <input name="product_img" class="form-control" type="file" placeholder="Image">
+                                                            </div>
+
+                                                            <div class="input-group mg-b-pro-edt">
+                                                                <span class="input-group-addon">BDT</span>
+                                                                <input type="text" name="current_price" value="{{ productData.current_price }}" class="form-control" placeholder="Current Price">
+                                                            </div>
+
+                                                            <div class="input-group mg-b-pro-edt">
+                                                                <span class="input-group-addon">BDT</span>
+                                                                <input type="text" name="other_charge" value="{{ productData.other_charge }}" class="form-control" placeholder="Other Charge">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <div class="text-center custom-pro-edt-ds">
+                                                            <input type="submit" name="product_edit" value="Update" class="btn btn-ctl-bt waves-effect waves-light m-r-10">
+                                                            <button type="button" class="btn btn-ctl-bt waves-effect waves-light">Discard</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- ===== START OF FOOTER SECTION ======== -->
+{% include "includes/footer.html" %}
+<!-- ===== END OF FOOTER SECTION ========== -->
